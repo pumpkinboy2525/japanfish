@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2024_03_11_032114) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "fish", force: :cascade do |t|
+  create_table "fishs", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "fish_name"
     t.text "fish_introduction"

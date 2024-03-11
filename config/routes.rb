@@ -1,35 +1,23 @@
 Rails.application.routes.draw do
   
+  root to: 'homes#top'
+  get "/about"=>"homes#about", as: 'about'
+  
   namespace :admin do
-    get 'comments/index'
+    resources :comments, only: [:index, :destroy]
+    resources :shops, only: [:index, :destroy]
+    resources :fishs, only: [:index, :show, :edit, :create, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
-  namespace :admin do
-    get 'shops/index'
+  
+  namespace :public, path: 'customer' do
+    resources :comments, only: [:index, :create, :destroy]
+    resources :shops, only: [:new, :index, :show, :create, :destroy]
+    resources :fishs, only: [:index]
+    resources :prefectures, only: [:index]
+    resources :customers, only: [:shoe, :edit, :update]
   end
-  namespace :admin do
-    get 'fishs/index'
-    get 'fishs/show'
-    get 'fishs/edit'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :public do
-    get 'comments/index'
-  end
-  namespace :public do
-    get 'shops/new'
-    get 'shops/index'
-    get 'shops/show'
-  end
-  namespace :public do
-    get 'fishs/index'
-  end
-  namespace :public do
-    get 'prefectures/index'
-  end
+  
   devise_for :customers,skip: [:passwords],controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -39,9 +27,5 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
   }
   
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
