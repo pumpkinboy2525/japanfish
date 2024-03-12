@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2></h2>
+      <%= form_with model: @fish do |f| %>
+        <table>
+          <tr>
+            <td>画像</td>
+            <td><%= f.file_field :image, accept: "image/*" %></td>
+          </tr>
+          
+          <tr>
+            <td>魚名</td>
+            <td><%= f.text_field :fish_name %></td>
+          </tr>
+          
+          <tr>
+            <td>魚説明</td>
+            <td><%= f.text_field :fish_introduction %></td>
+          </tr>
+        </table>
+        <%= f.submit '追加', class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
