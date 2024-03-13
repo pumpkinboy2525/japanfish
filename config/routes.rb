@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :comments, only: [:index, :destroy]
     resources :shops, only: [:index, :destroy]
-    resources :fish, only: [:new, :index, :show, :edit, :create, :destroy]
+    resources :fish, only: [:new, :index, :show, :edit, :create, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
   end
   
