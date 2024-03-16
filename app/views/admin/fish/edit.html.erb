@@ -3,7 +3,7 @@
     <div class="col">
       <h2>魚編集</h2>
       <%= form_with model: @fish, url: admin_fish_path(@fish.id), method: :patch do |f| %>
-      <table>
+      <table class="table table-borderless">
         <tr>
           <td>画像</td>
           <td><%= f.file_field :image, accept: "image/*" %></td>

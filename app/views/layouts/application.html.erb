@@ -17,20 +17,68 @@
         <div class="container">
           <a class="navbar-brand" href="/"><span>日本の魚を食べよう</span></a>
           <% if admin_signed_in? %>
-            <div><%= link_to 'ホーム', root_path %></div> 
-            <div><%= link_to '会員一覧', admin_customers_path %></div>
-            <div><%= link_to '魚一覧', admin_fish_index_path %></div>
-            <div><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></div>
+            <div>
+              <%= link_to  root_path do %>
+              <i class="fa-solid fa-house"></i>ホーム
+              <% end %>
+            </div> 
+            <div>
+              <%= link_to admin_customers_path do %>
+              <i class="fa-solid fa-users"></i>会員一覧
+              <% end %>
+            </div>
+            <div>
+              <%= link_to admin_fish_index_path do %>
+              <i class="fa-solid fa-fish"></i>魚一覧
+              <% end %>
+            </div>
+            <div>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+              <i class="fa-solid fa-right-from-bracket"></i>ログアウト
+              <% end %>
+            </div>
           <% elsif customer_signed_in? %>
-            <div><%= link_to 'ホーム', root_path %></div> 
-            <div><%= link_to 'アバウト', about_path %></div>
-            <div><%= link_to 'マイページ', customers_mypage_path %></div>
-            <div><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></div>
+            <div>
+              <%= link_to  root_path do %>
+              <i class="fa-solid fa-house"></i>ホーム
+              <% end %>
+            </div> 
+            <div>
+              <%= link_to about_path do %>
+              <i class="fa-solid fa-folder"></i>アバウト
+              <% end %>
+            </div>
+            <div>
+              <%= link_to customers_mypage_path do %>
+              <i class="fa-solid fa-user"></i>マイページ
+              <% end %>
+            </div>
+            <div>
+              <%= link_to destroy_customer_session_path, method: :delete do %>
+              <i class="fa-solid fa-right-from-bracket"></i>ログアウト
+              <% end %>
+            </div>
           <% else %>
-            <div><%= link_to 'ホーム', root_path %></div> 
-            <div><%= link_to 'アバウト', about_path %></div>
-            <div><%= link_to 'ログイン', customer_session_path %></div>
-            <div><%= link_to '新規登録', new_customer_registration_path %></div>
+            <div>
+              <%= link_to root_path do %>
+              <i class="fa-solid fa-house"></i>ホーム
+              <% end %>
+            </div> 
+            <div>
+              <%= link_to about_path do %>
+              <i class="fa-solid fa-folder"></i>アバウト
+              <% end %>
+            </div>
+            <div>
+              <%= link_to customer_session_path do %>
+              <i class="fa-solid fa-right-to-bracket"></i>ログイン
+              <% end %>
+            </div>
+            <div>
+              <%= link_to new_customer_registration_path do %>
+              <i class="fa-solid fa-user-plus"></i>新規登録
+              <% end %>
+            </div>
           <% end %>
         </div>
       </nav>

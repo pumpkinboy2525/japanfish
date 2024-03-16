@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_13_042408) do
+ActiveRecord::Schema.define(version: 2024_03_15_075053) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2024_03_13_042408) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -84,6 +84,22 @@ ActiveRecord::Schema.define(version: 2024_03_13_042408) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "fish_tags", force: :cascade do |t|
+    t.integer "fish_id", null: false
+    t.integer "fish_tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fish_id"], name: "index_fish_tags_on_fish_id"
+    t.index ["fish_tag_id"], name: "index_fish_tags_on_fish_tag_id"
+  end
+
+  create_table "prefecture_tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_prefecture_tags_on_name", unique: true
+  end
+
   create_table "shops", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "prefecture_id"
@@ -96,4 +112,6 @@ ActiveRecord::Schema.define(version: 2024_03_13_042408) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "fish_tags", "fish"
+  add_foreign_key "fish_tags", "fish_tags"
 end
