@@ -9,9 +9,10 @@
         
         <% @fish.each do |fish| %>
         <tr>
-          <td><%= link_to admin_fish_path(fish.id) do %>
-              <%= fish.fish_name %>
-              <% end %>
+          <td>
+            <%= link_to admin_fish_path(fish.id) do %>
+            <%= fish.fish_name %>
+            <% end %>
           </td>
         </tr>
         <% end %>

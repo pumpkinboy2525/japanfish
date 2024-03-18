@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      
+      <ul>
+        <% @tags.each do |tag| %>
+          <li><%= link_to tag.name, fish_index_path(prefecture_tag_id: tag.prefecture_tag_id) %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

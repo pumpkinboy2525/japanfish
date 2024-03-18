@@ -86,11 +86,11 @@ ActiveRecord::Schema.define(version: 2024_03_15_075053) do
 
   create_table "fish_tags", force: :cascade do |t|
     t.integer "fish_id", null: false
-    t.integer "fish_tag_id", null: false
+    t.integer "prefecture_tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["fish_id"], name: "index_fish_tags_on_fish_id"
-    t.index ["fish_tag_id"], name: "index_fish_tags_on_fish_tag_id"
+    t.index ["prefecture_tag_id"], name: "index_fish_tags_on_prefecture_tag_id"
   end
 
   create_table "prefecture_tags", force: :cascade do |t|
@@ -113,5 +113,5 @@ ActiveRecord::Schema.define(version: 2024_03_15_075053) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "fish_tags", "fish"
-  add_foreign_key "fish_tags", "fish_tags"
+  add_foreign_key "fish_tags", "prefecture_tags"
 end

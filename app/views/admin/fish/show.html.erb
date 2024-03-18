@@ -18,6 +18,14 @@
           <td>魚説明</td>
           <td><%= @fish.fish_introduction %></td>
         </tr>
+
+        <tr>
+          <td>都道府県</td>
+          <% @fish.prefecture_tags.each do |tag| %>
+          <td><%= tag.name %></td>
+          <% end %>
+        </tr>
+
       </table>
 
       <%= link_to '編集する', edit_admin_fish_path(@fish.id), class:"btn btn-success" %>
