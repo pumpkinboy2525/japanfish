@@ -7,19 +7,6 @@
           <tr>
             <td>画像</td>
             <td><%= f.file_field :image, accept: "image/*" %></td>
-          </tr>
-
-          <tr>
-            <td>魚名</td>
-            <td><%= f.text_field :fish_name %></td>
-          </tr>
-
-          <tr>
-            <td>魚説明</td>
-            <td><%= f.text_field :fish_introduction %></td>
-          </tr>
-
-          <tr>
             <td>都道府県　　　</td>
             <td>
               <%= f.collection_check_boxes(:prefecture_tag_ids, PrefectureTag.all, :id, :name) do |tag| %>
@@ -31,6 +18,16 @@
               </div>
               <% end %>
             </td>
+          </tr>
+
+          <tr>
+            <td>魚名</td>
+            <td><%= f.text_field :fish_name %></td>
+          </tr>
+
+          <tr>
+            <td>魚説明</td>
+            <td><%= f.text_field :fish_introduction %></td>
           </tr>
         </table>
         <%= f.submit '追加', class:"btn btn-success" %>

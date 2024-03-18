@@ -1,7 +1,42 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      
+      <h2>お店投稿</h2>
+      <%= form_with model: @shop, url: shops_path do |f| %>
+        <table>
+          <tr>
+            <td>画像</td>
+            <td><%= f.file_field :image, accept: "image/*" %></td>
+            <td>都道府県　　　</td>
+            <td>
+              <%= f.collection_check_boxes(:prefecture_tag_ids, PrefectureTag.all, :id, :name) do |tag| %>
+              <div>
+                <%= tag.label class: 'form-check-label' do %>
+                  <%= tag.check_box class: 'form-check-input' %>
+                  <%= tag.text %>
+                <% end %>
+              </div>
+              <% end %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>店名</td>
+            <td><%= f.text_field :shop_name %></td>
+          </tr>
+
+          <tr>
+            <td>住所</td>
+            <td><%= f.text_field :shop_address %></td>
+          </tr>
+
+          <tr>
+            <td>説明</td>
+            <td><%= f.text_field :shop_introduction %></td>
+          </tr>
+        </table>
+        <%= f.submit '投稿', class:"btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,2 +1,29 @@
-<h1>Public::Shops#show</h1>
-<p>Find me in app/views/public/shops/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>お店詳細</h2>
+      
+      <table>
+        <tr>
+          <td>画像</td>
+          <td><%= image_tag @shop.image, size: "200x200" %></td>
+        </tr>
+        
+        <tr>
+          <td>店名</td>
+          <td><%= @shop.shop_name %></td>
+        </tr>
+        
+        <tr>
+          <td>住所</td>
+          <td><%= @shop.shop_address %></td>
+        </tr>
+        
+        <tr>
+          <td>説明</td>
+          <td><%= @shop.shop_introduction %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

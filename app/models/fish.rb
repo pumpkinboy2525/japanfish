@@ -7,6 +7,4 @@ class Fish < ApplicationRecord
   validates :fish_name, presence: true
   validates :fish_introduction, presence: true
   validates :image, presence: true
-
-
 end

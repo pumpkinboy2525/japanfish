@@ -9,7 +9,6 @@ class Admin::FishController < ApplicationController
 
   def show
     @fish = Fish.find(params[:id])
-    
   end
 
   def edit
@@ -19,7 +18,6 @@ class Admin::FishController < ApplicationController
   def create
     fish = Fish.new(fish_params)
     if fish.save
-     
       redirect_to admin_fish_index_path(fish), notice: "魚が追加されました"
     else
       render :new
