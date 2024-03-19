@@ -24,6 +24,7 @@
           <td><%= @shop.shop_introduction %></td>
         </tr>
       </table>
+      <%= link_to 'コメント', shop_comments_path(shop_id: @shop.id), class:"btn btn-success" %>
     </div>
   </div>
 </div>

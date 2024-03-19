@@ -7,14 +7,20 @@ Rails.application.routes.draw do
     get 'customers/mypage' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/information' => 'customers#update'
-    resources :comments, only: [:index, :create, :destroy]
-    resources :shops, only: [:new, :index, :show, :create, :destroy]
+    resources :shops, only: [:new, :index, :show, :create, :destroy] do
+      resources :comments, only: [:create]
+      member do
+        get 'comments'
+      end
+    end
+    resources :comments, only: [:destroy]
     resources :fish, only: [:index]
   end
   
   namespace :admin do
-    resources :comments, only: [:index, :destroy]
-    resources :shops, only: [:index, :destroy]
+    resources :shops, only: [:index, :destroy] do
+      resources :comments, only: [:index, :destroy]
+    end
     resources :fish, only: [:new, :index, :show, :edit, :create, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
   end

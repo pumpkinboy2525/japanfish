@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% @comments.each do |c| %>
+        <%= c.comment %>
+      <% end %>
+      
+      <%= form_with model: @comment, url: shop_comments_path(@shop) do |f| %>
+        <%= f.hidden_field :shop_id %>
+        <%= f.text_field :comment %>
+        <%= f.submit '投稿' %>
+      <% end %>
+    </div>
+  </div>
+</div>
