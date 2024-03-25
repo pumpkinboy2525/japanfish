@@ -1,2 +1,29 @@
-<h1>Admin::Shops#index</h1>
-<p>Find me in app/views/admin/shops/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>お店一覧</h2>
+      
+      <table class="table table-border">
+        <tr>
+          <th></th>
+          <th>店名</th>
+          <th>住所</th>
+          <th></th>
+        </tr>
+        
+        <% @shops.each do |shop| %>
+        <tr>
+          <td>
+            <%= link_to shop_path(shop) do %>
+              <%= image_tag shop.image, size: "200x150" %>
+            <% end %>
+          </td>
+          <td><%= shop.shop_name %></td>
+          <td><%= shop.shop_address %></td>
+          <td><%= link_to "削除", admin_shop_path(shop.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-success" %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

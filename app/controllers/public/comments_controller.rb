@@ -1,6 +1,6 @@
 class Public::CommentsController < ApplicationController
   before_action :authenticate_customer!, only: [:create]
-  
+
   def create
     @comment = current_customer.comments.build(comment_params)
     @shop = @comment.shop
@@ -13,10 +13,13 @@ class Public::CommentsController < ApplicationController
       render "public/shops/comments"
     end
   end
-  
+
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to root_path
   end
-  
+
   private
 
   def comment_params

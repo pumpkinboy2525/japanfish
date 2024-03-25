@@ -5,7 +5,7 @@
       
       <table>
         <tr>
-          <td>画像</td>
+          <td></td>
           <td><%= image_tag @shop.image, size: "200x200" %></td>
         </tr>
         
@@ -24,7 +24,26 @@
           <td><%= @shop.shop_introduction %></td>
         </tr>
       </table>
-      <%= link_to 'コメント', shop_comments_path(shop_id: @shop.id), class:"btn btn-success" %>
+      
+      
+      <div id="star_<%= @shop.id %>"></div>
+      <script>
+        $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#star_<%= @shop.id %>');
+        if (elem == null) return;
+  
+        elem.innerHTML = "";
+        let opt = {  
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        score: "<%= @shop.star %>",
+        readOnly: true,
+      };
+      raty(elem, opt);
+    });
+    </script>
+      <%= link_to 'コメント一覧・投稿', shop_comments_path(shop_id: @shop.id), class:"btn btn-success" %>
     </div>
   </div>
 </div>

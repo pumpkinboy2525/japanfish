@@ -28,6 +28,9 @@ class Public::ShopsController < ApplicationController
   end
 
   def destroy
+    shop = Shop.find(params[:id])
+    shop.destroy
+    redirect_to root_path
   end
 
   def comments
@@ -39,7 +42,7 @@ class Public::ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:shop_name, :shop_introduction, :shop_address, :image, :prefecture_id)
+    params.require(:shop).permit(:shop_name, :shop_introduction, :shop_address, :image, :prefecture_id, :star)
   end
 
 end

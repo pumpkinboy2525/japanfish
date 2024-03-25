@@ -18,8 +18,8 @@
           <a class="navbar-brand" href="/"><span>日本の魚を食べよう</span></a>
           <% if admin_signed_in? %>
             <div>
-              <%= link_to  root_path do %>
-              <i class="fa-solid fa-house"></i>ホーム
+              <%= link_to  admin_shops_path do %>
+              <i class="fa-solid fa-house"></i>お店一覧
               <% end %>
             </div> 
             <div>
