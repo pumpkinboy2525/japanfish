@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.find_or_create_by!(
+Admin.create!(
   email: 'admin@admin.com',
-  password: 'admin1',
+  password: 'admin1'
 )
 prefectures = ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県',
   '茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','山梨県','長野県',
