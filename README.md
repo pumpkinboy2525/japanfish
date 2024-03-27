@@ -20,6 +20,8 @@
 - 地域の有名な魚を知りたい時
 
 ## 設計書
+- https://app.diagrams.net/#G1PjAGI23uAQxzafHUJtUrlealg1Vviifb#%7B%22pageId%22%3A%22039uGyOllA8Q-k9r3ZTe%22%7D
+- https://docs.google.com/spreadsheets/d/1mguJjv08SUUj8aXcI-jvzZyB3v1by3cIykAUGRZQOsg/edit#gid=1852805036
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -27,8 +29,3 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-​
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
