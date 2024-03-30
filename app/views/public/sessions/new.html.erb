@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>ログイン</h2>
+      <h2 class="my-4">ログイン</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <table>
+      <table class="my-4">
         <tr>
           <td>メールアドレス</td>
           <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>

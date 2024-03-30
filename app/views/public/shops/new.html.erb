@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>お店投稿</h2>
+      <h2 class="my-4">お店投稿</h2>
       <%= form_with model: @shop, url: shops_path do |f| %>
         <%= f.hidden_field :prefecture_id, value: (params[:prefecture_id] || @shop.prefecture_id) %>
         <div class="form-group">
