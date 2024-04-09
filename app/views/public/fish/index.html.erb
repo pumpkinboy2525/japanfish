@@ -1,17 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2 class="my-4"><%= @tag&.name %>の魚一覧</h2>
-
+      <h2 class="mt-4"><%= @tag&.name %>の魚一覧</h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col d-flex justify-content-center align-items-center flex-wrap">
       <% @fishes.each do |fish| %>
-        <div>
-          <%= image_tag fish.image, size: "130x100" %><br>
+        <div class="m-4">
+          <%= image_tag fish.image, size: "250x200" %><br>
           <%= fish.fish_name %><br>
           <%= fish.fish_introduction %>
         </div>
       <% end %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col d-flex justify-content-center align-items-center">
       <% if @tag %>
-        <%= link_to 'お店一覧', shops_path(prefecture_tag_id: @tag.id), class: "btn btn-success" %>
+        <%= link_to 'お店一覧', shops_path(prefecture_tag_id: @tag.id), class: "btn btn-success" %>　
         <%= link_to 'お店を投稿', new_shop_path(prefecture_id: @tag.id), class: "btn btn-success" %>
       <% end %>
     </div>

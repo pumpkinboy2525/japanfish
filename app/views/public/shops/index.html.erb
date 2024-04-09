@@ -12,7 +12,7 @@
               <%= shop.shop_name %>
             <% end %>
           </td>
-          <td><%= link_to "削除", shop_path(shop.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-success" %></td>
+          <td><%= link_to "削除", shop_path(shop.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
         </tr>
       </table>
       <% end %>

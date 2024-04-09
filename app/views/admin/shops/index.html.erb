@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>お店一覧</h2>
+      <h2 class="my-4">お店一覧</h2>
       
       <table class="table table-border">
         <tr>
@@ -20,7 +20,7 @@
           </td>
           <td><%= shop.shop_name %></td>
           <td><%= shop.shop_address %></td>
-          <td><%= link_to "削除", admin_shop_path(shop.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-success" %></td>
+          <td><%= link_to "削除", admin_shop_path(shop.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
         </tr>
         <% end %>
       </table>
